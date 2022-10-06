@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-angular-by-Fourth-v2';
+  title = 'my-angular-by-Fourth-v3';
 }
