@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.email "${{ github.event.pusher.email }}"
           git config --global user.name "${{ github.actor }}"
-      - name: Setup environment variables
+      - name: Setup 
         run: |
           VERSION="${REF_NAME#refs/heads/v}"
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
