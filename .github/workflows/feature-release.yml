@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is deploying react-pages
 on:
   push: 
     branches: 
-      - v0.0.01
+      - v*.*.*
 jobs: 
   feature-01:
     runs-on: ubuntu-latest
