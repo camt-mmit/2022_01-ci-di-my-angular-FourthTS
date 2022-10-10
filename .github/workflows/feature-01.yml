@@ -1,4 +1,4 @@
-name: feature-01 
+name: feature-01 CI
 run-name: ${{ github.actor }} is integrating feature-01
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         run: |
           git config --global user.email "${{ github.event.pusher.email }}"
           git config --global user.name "${{ github.actor }}"
-      - name: Install yarn 
+      - name: Install yarn
         run: npm install -g yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
