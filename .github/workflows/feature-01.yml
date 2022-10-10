@@ -1,25 +1,28 @@
-name: feature-01
-run-name: ${{ github.actor }} is deploying gh-pages
+name: feature-01 
+run-name: ${{ github.actor }} is integrating feature-01
 on:
-  push: 
-    branches: 
+  push:
+    branches:
       - feature-01
-jobs: 
-  deploy-gh-pages:
+jobs:
+  ci-feature-01:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ github.token }} 
+          token: ${{ github.token }}
       - uses: actions/setup-node@v3
         with:
-          node-version: "16" 
-      - run: |
+          node-version: "16"
+      - name: Setup git user
+        run: |
           git config --global user.email "${{ github.event.pusher.email }}"
-          git config --global user.name "${{ github.actor }}" 
-      - run: npm install -g yarn 
-      - run: yarn install --frozen-lockfile
-      - run: |
-          npx ng build --configuration=production --base-href="/${{ github.event.repository.name}}/"
-      - run: yarn run lint
-      - run: yarn run test:ci
+          git config --global user.name "${{ github.actor }}"
+      - name: Install yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint project
+        run: yarn run lint
+      - name: Test project
+        run: yarn run test:ci
