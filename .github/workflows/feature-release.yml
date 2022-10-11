@@ -34,7 +34,7 @@ jobs:
         run: yarn run lint
       - name: Test project
         run: yarn run test:ci
-      - name: Merge master
+      - name: Merge master v2
         run: |
           git fetch --unshallow
       - run: git checkout master
