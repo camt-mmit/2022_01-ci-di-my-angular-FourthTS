@@ -40,5 +40,6 @@ jobs:
       - run: git checkout master
       - run: git merge ${{ env.BRANCH_NAME }}
       - run: git push origin master
+      - run: git push --delete origin ${{ env.BRANCH_NAME }}
       - run: git tag -a ${{ env.TAG_NAME }} -m "my version ${{ env.VERSION }}"
       - run: git push origin master --tags
